@@ -1,0 +1,17 @@
++ zfs list bpool/Backups/apool
+NAME                  USED  AVAIL  REFER  MOUNTPOINT
+bpool/Backups/apool  1.72M  96.4G    24K  /bpool/Backups/apool
++ [ 0 -eq 1 ]
++ zelta match apool bpool/Backups/apool
+REL_NAME                           MATCH                 SRC_LAST              TGT_LAST              INFO      
+                                   @2024-05-23_20.34.48  @2024-05-23_20.34.48  @2024-05-23_20.34.48  up-to-date
+/treetop                           @2024-05-23_20.34.48  @2024-05-23_20.34.48  @2024-05-23_20.34.48  up-to-date
+/treetop/add                       @2024-05-23_20.34.48  @2024-05-23_20.34.48  @2024-05-23_20.34.48  up-to-date
+/treetop/add/7                     @2024-05-23_20.34.48  @2024-05-23_20.34.48  @2024-05-23_20.34.48  up-to-date
+/treetop/minus                     @2024-05-23_20.34.48  @2024-05-23_20.34.48  @2024-05-23_20.34.48  up-to-date
+/treetop/minus/two                 @2024-05-23_20.34.48  @2024-05-23_20.34.48  @2024-05-23_20.34.48  up-to-date
+/treetop/minus/two/one             @2024-05-23_20.34.48  @2024-05-23_20.34.48  @2024-05-23_20.34.48  up-to-date
+/treetop/minus/two/one/0           @2024-05-23_20.34.48  @2024-05-23_20.34.48  @2024-05-23_20.34.48  up-to-date
+/treetop/minus/two/one/0/lift off  @2024-05-23_20.34.48  @2024-05-23_20.34.48  @2024-05-23_20.34.48  up-to-date
+/treetop/vol1                      @2024-05-23_20.34.48  @2024-05-23_20.34.48  @2024-05-23_20.34.48  up-to-date
+10 datasets synced

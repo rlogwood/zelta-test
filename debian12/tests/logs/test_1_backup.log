@@ -1,0 +1,107 @@
++ ./pool_setup.sh
++ zpool destroy apool
++ zpool destroy bpool
++ zpool create apool /dev/nvme0n1
++ zpool create bpool /dev/nvme1n1
++ zpool list
+NAME    SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
+apool  99.5G   134K  99.5G        -         -     0%     0%  1.00x    ONLINE  -
+bpool  99.5G   134K  99.5G        -         -     0%     0%  1.00x    ONLINE  -
++ zfs list
+NAME    USED  AVAIL  REFER  MOUNTPOINT
+apool   108K  96.4G    24K  /apool
+bpool   108K  96.4G    24K  /bpool
++ ./make-snap-tree.sh
++ SRCTOP=apool
++ TGTTOP=bpool
++ SRCTREE=apool/treetop
++ TGTTREE=bpool/treetop
++ zfs destroy -r apool/treetop
+cannot open 'apool/treetop': dataset does not exist
++ zfs destroy -r bpool
++ zfs create -p apool/treetop/minus/two/one/0/lift off
++ zfs create -p apool/treetop/minus/two/one/0/lift off
++ zfs create -sV 16G -o volmode=dev apool/treetop/vol1
++ etch 1
++ zfs list -Hro name -t filesystem apool/treetop
++ tr \n \0
++ xargs -0 -I% -n1 dd if=/dev/random of=/%/file bs=64k count=1
++ zfs list -Hro name -t volume apool/treetop
++ tr \n \0
++ xargs -0 -I% -n1 dd if=/dev/random of=/dev/zvol/% bs=64k count=1
++ zfs snapshot -r apool/treetop@snap1
++ etch 2
++ zfs list -Hro name -t filesystem apool/treetop
++ tr \n \0
++ xargs -0 -I% -n1 dd if=/dev/random of=/%/file bs=64k count=1
++ zfs list -Hro name -t volume apool/treetop
++ tr \n \0
++ xargs -0 -I% -n1 dd if=/dev/random of=/dev/zvol/% bs=64k count=1
++ zfs snapshot -r apool/treetop@snap2
++ etch 3
++ zfs list -Hro name -t filesystem apool/treetop
++ tr \n \0
++ xargs -0 -I% -n1 dd if=/dev/random of=/%/file bs=64k count=1
++ zfs list -Hro name -t volume apool/treetop
++ tr \n \0
++ xargs -0 -I% -n1 dd if=/dev/random of=/dev/zvol/% bs=64k count=1
++ zfs snapshot -r apool/treetop@snap3
++ zelta backup apool/treetop bpool/treetop
+replicating 14 streams
+1M sent, 21/21 streams received in 3.12 seconds
++ zfs create -p apool/treetop/add/7
++ zfs snapshot apool/treetop/add/7@src7
++ zfs create -u bpool/treetop/sub
++ zfs create -u bpool/treetop/sub/8
++ zfs snapshot bpool/treetop/sub/8@tgt8
++ zfs snapshot apool/treetop/minus/two/one/0@src7
++ zfs snapshot bpool/treetop/minus/two/one/0@src7
++ zfs snapshot apool/treetop/vol1@snap7
++ zfs destroy apool/treetop/vol1@snap6
+could not find any snapshots to destroy; check snapshot names.
++ zelta match apool/treetop bpool/treetop
+11 total datasets, 5 synced, 2 syncable, 4 unsyncable
+target dataset has changed: 24K
+source dataset has changed: 38K
+REL_NAME                   MATCH   SRC_LAST  TGT_LAST  INFO                                        
+                           @snap3  @snap3    @snap3    up-to-date; source is written               
+/add                                                   no source snapshots; no target dataset      
+/add/7                             @src7               source parent has no snapshots              
+/minus                     @snap3  @snap3    @snap3    up-to-date                                  
+/minus/two                 @snap3  @snap3    @snap3    up-to-date                                  
+/minus/two/one             @snap3  @snap3    @snap3    up-to-date                                  
+/minus/two/one/0           @snap3  @src7     @src7     cannot sync: source and target have diverged
+/minus/two/one/0/lift off  @snap3  @snap3    @snap3    up-to-date                                  
+/sub                                                   no source dataset; no target snapshots      
+/sub/8                                       @tgt8     no source dataset; target dataset exists    
+/vol1                      @snap3  @snap7    @snap3    target is out-of-date                       
++ zfs list
+NAME                                     USED  AVAIL  REFER  MOUNTPOINT
+apool                                   2.07M  96.4G    24K  /apool
+apool/treetop                           1.70M  96.4G    89K  /apool/treetop
+apool/treetop/add                         48K  96.4G    24K  /apool/treetop/add
+apool/treetop/add/7                       24K  96.4G    24K  /apool/treetop/add/7
+apool/treetop/minus                     1.17M  96.4G    89K  /apool/treetop/minus
+apool/treetop/minus/two                  962K  96.4G    89K  /apool/treetop/minus/two
+apool/treetop/minus/two/one              721K  96.4G    88K  /apool/treetop/minus/two/one
+apool/treetop/minus/two/one/0            481K  96.4G    89K  /apool/treetop/minus/two/one/0
+apool/treetop/minus/two/one/0/lift off   240K  96.4G    88K  /apool/treetop/minus/two/one/0/lift off
+apool/treetop/vol1                       234K  96.4G    78K  -
+bpool                                   2.06M  96.4G    24K  /bpool
+bpool/treetop                           1.69M  96.4G    89K  /bpool/treetop
+bpool/treetop/minus                     1.17M  96.4G    89K  /bpool/treetop/minus
+bpool/treetop/minus/two                  962K  96.4G    89K  /bpool/treetop/minus/two
+bpool/treetop/minus/two/one              721K  96.4G    88K  /bpool/treetop/minus/two/one
+bpool/treetop/minus/two/one/0            481K  96.4G    89K  /bpool/treetop/minus/two/one/0
+bpool/treetop/minus/two/one/0/lift off   240K  96.4G    88K  /bpool/treetop/minus/two/one/0/lift off
+bpool/treetop/sub                         48K  96.4G    24K  /bpool/treetop/sub
+bpool/treetop/sub/8                       24K  96.4G    24K  /bpool/treetop/sub/8
+bpool/treetop/vol1                       234K  96.4G    78K  -
++ zelta backup apool bpool/Backups/apool
+source snapshot created: @2024-05-23_20.34.48
+replicating 29 streams
+WARNING: could not send apool@2024-05-23_20.34.48:
+cannot receive: failed to read from stream
+WARNING: could not send apool/treetop/add@2024-05-23_20.34.48:
+cannot receive: failed to read from stream
+1M sent, 34/36 streams received in 5.43 seconds
