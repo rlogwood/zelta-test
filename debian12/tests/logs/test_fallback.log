@@ -1,0 +1,16 @@
++ zfs rename apool/treetop apool/treetop-backup
++ zelta sync -c apool/treetop-backup apool/treetop
+replicating 9 streams
+558K sent, 9/9 streams received in 1.49 seconds
++ zelta backup -S --rotate apool/treetop bpool/treetop
+source snapshot created: @2024-05-25_00.05.38
+bpool/treetop: cannot determine sync state
+bpool/treetop/minus: cannot determine sync state
+bpool/treetop/minus/two: cannot determine sync state
+bpool/treetop/minus/two/one: cannot determine sync state
+bpool/treetop/minus/two/one/0: cannot determine sync state
+bpool/treetop/minus/two/one/0/lift off: cannot determine sync state
+bpool/treetop/sub: no source dataset; no target snapshots; target is written
+bpool/treetop/sub/8: no source dataset; target dataset exists
+bpool/treetop/vol1: cannot determine sync state
+no match available for requested rotation
