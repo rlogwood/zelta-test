@@ -1,15 +1,13 @@
++ set -x
 + zelta sync -R apool bpool/Backups_Rd1_apool-backup
 replicating 1 streams
-1M sent, 34/34 streams received in 8.53 seconds
-+ zfs list -r bpool/Backups_Rd1_apool-backup
-NAME                                                              USED  AVAIL  REFER  MOUNTPOINT
-bpool/Backups_Rd1_apool-backup                                   1.72M  96.4G    24K  /bpool/Backups_Rd1_apool-backup
-bpool/Backups_Rd1_apool-backup/treetop                           1.70M  96.4G    89K  /bpool/Backups_Rd1_apool-backup/treetop
-bpool/Backups_Rd1_apool-backup/treetop/add                         48K  96.4G    24K  /bpool/Backups_Rd1_apool-backup/treetop/add
-bpool/Backups_Rd1_apool-backup/treetop/add/7                       24K  96.4G    24K  /bpool/Backups_Rd1_apool-backup/treetop/add/7
-bpool/Backups_Rd1_apool-backup/treetop/minus                     1.17M  96.4G    89K  /bpool/Backups_Rd1_apool-backup/treetop/minus
-bpool/Backups_Rd1_apool-backup/treetop/minus/two                  962K  96.4G    89K  /bpool/Backups_Rd1_apool-backup/treetop/minus/two
-bpool/Backups_Rd1_apool-backup/treetop/minus/two/one              721K  96.4G    88K  /bpool/Backups_Rd1_apool-backup/treetop/minus/two/one
-bpool/Backups_Rd1_apool-backup/treetop/minus/two/one/0            481K  96.4G    89K  /bpool/Backups_Rd1_apool-backup/treetop/minus/two/one/0
-bpool/Backups_Rd1_apool-backup/treetop/minus/two/one/0/lift off   240K  96.4G    88K  /bpool/Backups_Rd1_apool-backup/treetop/minus/two/one/0/lift off
-bpool/Backups_Rd1_apool-backup/treetop/vol1                       234K  96.4G    78K  -
+skipping dataset apool/treetop: snapshot 2024-05-25_01.03.10 does not exist
+cannot mount '/bpool/Backups_Rd1_apool-backup/treetop-backup': failed to create mountpoint: Read-only file system
+cannot mount '/bpool/Backups_Rd1_apool-backup/treetop-backup/add': failed to create mountpoint: Read-only file system
+cannot mount '/bpool/Backups_Rd1_apool-backup/treetop-backup/add/7': failed to create mountpoint: Read-only file system
+cannot mount '/bpool/Backups_Rd1_apool-backup/treetop-backup/minus': failed to create mountpoint: Read-only file system
+cannot mount '/bpool/Backups_Rd1_apool-backup/treetop-backup/minus/two': failed to create mountpoint: Read-only file system
+cannot mount '/bpool/Backups_Rd1_apool-backup/treetop-backup/minus/two/one': failed to create mountpoint: Read-only file system
+cannot mount '/bpool/Backups_Rd1_apool-backup/treetop-backup/minus/two/one/0': failed to create mountpoint: Read-only file system
+cannot mount '/bpool/Backups_Rd1_apool-backup/treetop-backup/minus/two/one/0/lift off': failed to create mountpoint: Read-only file system
+1M sent, 34/34 streams received in 8.59 seconds
