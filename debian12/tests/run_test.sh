@@ -11,6 +11,17 @@ cleanup_function() {
     fi
 }    
 
+last_snapshot_name() {
+    dataset_name=$1
+
+    cmd="zfs list -t snapshot -o name,creation -s creation -r $dataset_name | grep \"$dataset_name@\" | tail -1 | awk -F'@' '{print \$2}' | awk '{print \$1}'"
+
+    last_snapshot_name=$(eval $cmd)
+
+    echo $last_snapshot_name
+}
+
+#====================================================
 
 # Check if an argument is provided
 if [ -z "$1" ]; then
@@ -31,11 +42,11 @@ fi
 
 
 # If an argument is provided, continue with the script
-echo "Running test file: \"$test_file\""
+echo "Running test file: \"$test_file\" $*"
 
 set -xe
 trap 'cleanup_function' EXIT $result
-. ./$test_file > $test_log 2>&1
+. ./$test_file $* > $test_log 2>&1
 
 
 # if we made it here, exit is clean

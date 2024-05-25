@@ -1,14 +1,16 @@
 #!/bin/sh
 
-echo "You must be root to run this!"
-
-../../clean_zelta_install.sh
+./setup_test_env.sh
 
 # Define the tests glob pattern
 GLOB_PATTERN="test_*.sh"
 
 # error count intialize
 error_count=0
+
+
+# clear all logs
+rm -f ./logs/*.log
 
 # Iterate over each file matching the glob pattern
 for FILE in $GLOB_PATTERN; do
