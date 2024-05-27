@@ -2,7 +2,7 @@
 
 Functional tests are found in [debian12/tests](debian12/tests)
 
-The functional test do a series of zelta and zfs checks on two 
+The functional tests perform a series of zelta and zfs checks on two 
 freshly created pools. The pools are re-created for each
 test sequence.
 
@@ -22,7 +22,7 @@ export APOOL_DISK="nvme?n1"
 export BPOOL_DISK="nvme?n1"
 ```
 
-## Chages to root home directory
+## Changes to root home directory
 > [!WARNING]
 > You have to run the script as root `sudo ./run_all.sh`
 
@@ -30,17 +30,17 @@ Root permissions are needed to create the `apool` and `bpool` used in testing.
 Additionally the current dev branch of the [zelta repo](https://github.com/bellhyve/zelta.git) is 
 downloaded to root's home directory `~root/` and installed at `~root/.local/zelta`.
 
-During test setup the `~root/.local/zelta/bin` path is added to the execution `PATH`.
+During test setup the `~root/.local/zelta/bin` path is added to the execution `PATH`. 
+After running the tests the following changes will be observed at `~/root`.
+```sh
+root:~# ls zelta .local/zelta
 
-    ```sh
-    root:~# ls zelta .local/zelta
+.local/zelta:
+bin  doc  etc  share
 
-    .local/zelta:
-    bin  doc  etc  share
-
-    zelta:
-    bin  doc  install.sh  LICENSE  port-files  README.md  share  zelta.conf  zelta.env
-    ```
+zelta:
+bin  doc  install.sh  LICENSE  port-files  README.md  share  zelta.conf  zelta.env
+```
 
 ## Running the tests
 You run the series of tests with the script [debian12/tests/run_all.sh](debian12/tests/run_all.sh).
