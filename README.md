@@ -22,8 +22,28 @@ export APOOL_DISK="nvme?n1"
 export BPOOL_DISK="nvme?n1"
 ```
 
+## Chages to root home directory
+> [!WARNING]
+> You have to run the script as root `sudo ./run_all.sh`
+
+Root permissions are needed to create the `apool` and `bpool` used in testing.
+Additionally the current dev branch of the [zelta repo](https://github.com/bellhyve/zelta.git) is 
+downloaded to root's home directory `~root/` and installed at `~root/.local/zelta`.
+
+During test setup the `~root/.local/zelta/bin` path is added to the execution `PATH`.
+
+    ```sh
+    root:~# ls zelta .local/zelta
+
+    .local/zelta:
+    bin  doc  etc  share
+
+    zelta:
+    bin  doc  install.sh  LICENSE  port-files  README.md  share  zelta.conf  zelta.env
+    ```
+
 ## Running the tests
-You run the series of tests with the command 
+You run the series of tests with the script [debian12/tests/run_all.sh](debian12/tests/run_all.sh).
 
 ### cd to [debian12/tests](debian12/tests)
 ```sh
