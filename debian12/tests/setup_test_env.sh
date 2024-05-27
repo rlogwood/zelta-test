@@ -1,14 +1,19 @@
-#!/bin/sh -xe
+#!/bin/sh -e
 
-
-echo "You must be root to run this!"
+print_error() {
+  { set +x; } 2>/dev/null
+  RED='\033[0;31m'
+  NC='\033[0m' # No Color
+  echo "${RED}Error: $1${NC}" >&2
+  { set -x; } 2>/dev/null
+}
 
 
 cleanup_function() {
     result=$?
     set +x
     if [ $result -ne 0 ]; then
-        echo "ERROR: Test Environment Setup Failed, review output and correct problem"
+        print_error "ERROR: Test Environment Setup Failed, review output and correct problem"
         echo "Exit code is \"$result\""
     else
         echo "Test environment setup successfully"
@@ -17,7 +22,7 @@ cleanup_function() {
 
 
 install_latest_zelta() {
-    ../../clean_zelta_install.sh    
+    . ./clean_zelta_install.sh
 }
 
 create_new_pools() {
@@ -32,6 +37,7 @@ create_new_tree() {
 }    
 
 initialize_tests() {
+    . ./config.env
     # setup environment fresh
     install_latest_zelta
     create_new_pools
@@ -39,7 +45,16 @@ initialize_tests() {
 }
 
 
+
+
 trap 'cleanup_function' EXIT $result
+
+
+
+if [ $(id -u) -ne 0 ]; then
+    print_error "ERROR: you must run this script as root"
+    exit 1
+fi    
 
 initialize_tests
 

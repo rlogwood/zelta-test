@@ -1,32 +1,20 @@
 + set -x
 + zfs list bpool/Backups/apool
 NAME                  USED  AVAIL  REFER  MOUNTPOINT
-bpool/Backups/apool  1.72M  96.4G    24K  /bpool/Backups/apool
+bpool/Backups/apool  1.72M  1.76T    24K  /bpool/Backups/apool
 + [ 0 -eq 1 ]
 + zelta sync -c bpool/Backups/apool bpool/temp/apool-backup
 replicating 19 streams
-572K sent, 10/10 streams received in 1.98 seconds
+573K sent, 10/10 streams received in 0.31 seconds
 + zfs list -r bpool/temp/apool-backup
 NAME                                                       USED  AVAIL  REFER  MOUNTPOINT
-bpool/temp/apool-backup                                    683K  96.4G    24K  /bpool/temp/apool-backup
-bpool/temp/apool-backup/treetop                            659K  96.4G    89K  /bpool/temp/apool-backup/treetop
-bpool/temp/apool-backup/treetop/add                         48K  96.4G    24K  /bpool/temp/apool-backup/treetop/add
-bpool/temp/apool-backup/treetop/add/7                       24K  96.4G    24K  /bpool/temp/apool-backup/treetop/add/7
-bpool/temp/apool-backup/treetop/minus                      444K  96.4G    89K  /bpool/temp/apool-backup/treetop/minus
-bpool/temp/apool-backup/treetop/minus/two                  355K  96.4G    89K  /bpool/temp/apool-backup/treetop/minus/two
-bpool/temp/apool-backup/treetop/minus/two/one              266K  96.4G    89K  /bpool/temp/apool-backup/treetop/minus/two/one
-bpool/temp/apool-backup/treetop/minus/two/one/0            177K  96.4G    89K  /bpool/temp/apool-backup/treetop/minus/two/one/0
-bpool/temp/apool-backup/treetop/minus/two/one/0/lift off    88K  96.4G    88K  /bpool/temp/apool-backup/treetop/minus/two/one/0/lift off
-bpool/temp/apool-backup/treetop/vol1                        78K  96.4G    78K  -
-+ zelta sync -R apool bpool/Backups_Rd1_apool-backup
-replicating 1 streams
-found clone origin bpool/Backups_Rd1_apool-backup/treetop-backup@2024-05-25_01.03.10
-found clone origin bpool/Backups_Rd1_apool-backup/treetop-backup/vol1@2024-05-25_01.03.10
-found clone origin bpool/Backups_Rd1_apool-backup/treetop-backup/minus@2024-05-25_01.03.10
-found clone origin bpool/Backups_Rd1_apool-backup/treetop-backup/minus/two@2024-05-25_01.03.10
-found clone origin bpool/Backups_Rd1_apool-backup/treetop-backup/minus/two/one@2024-05-25_01.03.10
-found clone origin bpool/Backups_Rd1_apool-backup/treetop-backup/minus/two/one/0@2024-05-25_01.03.10
-found clone origin bpool/Backups_Rd1_apool-backup/treetop-backup/minus/two/one/0/lift off@2024-05-25_01.03.10
-found clone origin bpool/Backups_Rd1_apool-backup/treetop-backup/add@2024-05-25_01.03.10
-found clone origin bpool/Backups_Rd1_apool-backup/treetop-backup/add/7@2024-05-25_01.03.10
-573K sent, 19/19 streams received in 15.74 seconds
+bpool/temp/apool-backup                                    685K  1.76T    24K  /bpool/temp/apool-backup
+bpool/temp/apool-backup/treetop                            661K  1.76T    90K  /bpool/temp/apool-backup/treetop
+bpool/temp/apool-backup/treetop/add                         49K  1.76T    25K  /bpool/temp/apool-backup/treetop/add
+bpool/temp/apool-backup/treetop/add/7                       24K  1.76T    24K  /bpool/temp/apool-backup/treetop/add/7
+bpool/temp/apool-backup/treetop/minus                      444K  1.76T    89K  /bpool/temp/apool-backup/treetop/minus
+bpool/temp/apool-backup/treetop/minus/two                  355K  1.76T    89K  /bpool/temp/apool-backup/treetop/minus/two
+bpool/temp/apool-backup/treetop/minus/two/one              266K  1.76T    89K  /bpool/temp/apool-backup/treetop/minus/two/one
+bpool/temp/apool-backup/treetop/minus/two/one/0            177K  1.76T    89K  /bpool/temp/apool-backup/treetop/minus/two/one/0
+bpool/temp/apool-backup/treetop/minus/two/one/0/lift off    88K  1.76T    88K  /bpool/temp/apool-backup/treetop/minus/two/one/0/lift off
+bpool/temp/apool-backup/treetop/vol1                        78K  1.76T    78K  -

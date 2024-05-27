@@ -1,29 +1,30 @@
 #!/bin/sh
 
-./setup_test_env.sh
+# list of tests to run, file format is test_(test).sh
+# using an array to control order of tests
+TESTS="\
+backup \
+fallback \
+match \
+sync \
+recursive_sync \
+src_recursive_sync"
 
-# Define the tests glob pattern
-GLOB_PATTERN="test_*.sh"
+# initialize test environment
+. ./setup_test_env.sh
 
 # error count intialize
 error_count=0
-
 
 # clear all logs
 rm -f ./logs/*.log
 
 # Iterate over each file matching the glob pattern
-for FILE in $GLOB_PATTERN; do
-    # Check if there are no matching files
-    if [ "$FILE" = "$GLOB_PATTERN" ]; then
-        echo "No files matching the pattern were found."
-        exit 1
-    fi
+for TEST_NAME in $TESTS; do
+    echo "$TEST"
+    FILE="test_$TEST_NAME.sh"
 
-    TEST_NAME="${FILE#*_}"
-    TEST_NAME="${TEST_NAME%.sh}"
-
-    # Run test for each file
+    # Run test 
     echo "Running test $TEST_NAME from file $FILE"
     ./run_test.sh $TEST_NAME
 
@@ -32,7 +33,6 @@ for FILE in $GLOB_PATTERN; do
         error_count=$((error_count + 1))
     fi
 done
-
 
 
 echo "Total errors: $error_count"

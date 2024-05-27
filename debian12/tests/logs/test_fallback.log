@@ -1,9 +1,11 @@
 + set +e
++ echo NOTE: This test depends on test_backup.sh, please run it first
+NOTE: This test depends on test_backup.sh, please run it first
 + zfs rename apool/treetop apool/treetop-backup
 + zelta clone apool/treetop-backup apool/treetop
 cloning 9 streams
 + zelta backup -S --rotate apool/treetop bpool/treetop
-source snapshot created: @2024-05-25_01.03.19
+source snapshot created: @2024-05-27_21.53.02
 bpool/treetop/sub: no source dataset; no target snapshots; target is written
 bpool/treetop/sub/8: no source dataset; target dataset exists
 source renamed to 'bpool/treetop_snap3'
@@ -17,10 +19,13 @@ using provided clone origin bpool/treetop_snap3/minus/two/one@snap3
 using provided clone origin bpool/treetop_snap3/minus/two/one/0@snap3
 using provided clone origin bpool/treetop_snap3/minus/two/one/0/lift off@snap3
 using provided clone origin bpool/treetop_snap3/vol1@snap3
-36K sent, 7/9 streams received in 1.23 seconds
+37K sent, 7/9 streams received in 0.15 seconds
 + dataset_arg=bpool/treetop
-+ last_snapshot_name bpool/treetop
++ find_last_snapshot_name bpool/treetop
 + dataset_name=bpool/treetop
++ entry=
++ [ -z  ]
++ filter=tail -1
 + cmd=zfs list -t snapshot -o name,creation -s creation -r bpool/treetop | grep "bpool/treetop@" | tail -1 | awk -F'@' '{print $2}' | awk '{print $1}'
 + eval zfs list -t snapshot -o name,creation -s creation -r bpool/treetop | grep "bpool/treetop@" | tail -1 | awk -F'@' '{print $2}' | awk '{print $1}'
 + zfs list -t snapshot -o name,creation -s creation -r bpool/treetop
@@ -28,10 +33,9 @@ using provided clone origin bpool/treetop_snap3/vol1@snap3
 + tail -1
 + awk -F@ {print $2}
 + awk {print $1}
-+ last_snapshot_name=2024-05-25_01.03.19
-+ echo 2024-05-25_01.03.19
-+ last_snapshot_name=2024-05-25_01.03.19
-+ zfs list bpool/treetop@2024-05-25_01.03.19
++ last_snapshot_name=2024-05-27_21.53.02
++ echo 2024-05-27_21.53.02
++ last_snapshot_name=2024-05-27_21.53.02
++ zfs list bpool/treetop@2024-05-27_21.53.02
 NAME                                USED  AVAIL  REFER  MOUNTPOINT
-bpool/treetop@2024-05-25_01.03.19     0B      -    89K  -
-+ [ 0 -eq 1 ]
+bpool/treetop@2024-05-27_21.53.02     0B      -    90K  -
