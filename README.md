@@ -10,9 +10,11 @@ Currently there is only one test sequence (see below)
 
 
 ## **Update the configuration before testing**
-> [!IMPORTANT]  define env variables for your pool devices
+
+> [!IMPORTANT]
 > Update [debian12/tests/config.env](debian12/tests/config.env)
 
+### **Define env variables for your pool devices**
 ```sh
 # update debian12/tests/config.env
 # an nvme example, the ? would be replaced by a device number
