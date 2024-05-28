@@ -1,6 +1,6 @@
 #!/bin/sh -x
-SRCTOP='apool'
-TGTTOP='bpool'
+SRCTOP=$APOOL_NAME
+TGTTOP=$BPOOL_NAME
 SRCTREE="$SRCTOP/treetop"
 TGTTREE="$TGTTOP/treetop"
 
@@ -12,8 +12,8 @@ etch () {
 	zfs snapshot -r "$SRCTREE"@snap$1
 }
 
-zfs destroy -r "$SRCTREE"
-zfs destroy -r "$TGTTOP"
+#zfs destroy -r "$SRCTREE"
+#zfs destroy -r "$TGTTOP"
 zfs create -p $SRCTREE/'minus/two/one/0/lift off'
 zfs create -p $SRCTREE/'minus/two/one/0/lift off'
 zfs create -sV 16G -o volmode=dev $SRCTREE'/vol1'
@@ -38,7 +38,7 @@ zfs snapshot "$TGTTREE/sub/8"@tgt8
 zfs snapshot "$SRCTREE/minus/two/one/0"@src7
 zfs snapshot "$TGTTREE/minus/two/one/0"@src7
 zfs snapshot $SRCTREE'/vol1'@snap7
-zfs destroy $SRCTREE'/vol1'@snap6
+#zfs destroy $SRCTREE'/vol1'@snap6
 zelta match "$SRCTREE" "$TGTTREE" #2&>1 >match_output.txt
 #etch 8
 #zelta sync "$SRCTREE" "$TGTTREE"

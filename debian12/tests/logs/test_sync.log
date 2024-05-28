@@ -5,12 +5,12 @@ bpool/Backups/apool  1.72M  1.76T    24K  /bpool/Backups/apool
 + [ 0 -eq 1 ]
 + zelta sync -c bpool/Backups/apool bpool/temp/apool-backup
 replicating 19 streams
-573K sent, 10/10 streams received in 0.31 seconds
+572K sent, 10/10 streams received in 0.32 seconds
 + zfs list -r bpool/temp/apool-backup
 NAME                                                       USED  AVAIL  REFER  MOUNTPOINT
-bpool/temp/apool-backup                                    685K  1.76T    24K  /bpool/temp/apool-backup
-bpool/temp/apool-backup/treetop                            661K  1.76T    90K  /bpool/temp/apool-backup/treetop
-bpool/temp/apool-backup/treetop/add                         49K  1.76T    25K  /bpool/temp/apool-backup/treetop/add
+bpool/temp/apool-backup                                    684K  1.76T    24K  /bpool/temp/apool-backup
+bpool/temp/apool-backup/treetop                            660K  1.76T    90K  /bpool/temp/apool-backup/treetop
+bpool/temp/apool-backup/treetop/add                         48K  1.76T    24K  /bpool/temp/apool-backup/treetop/add
 bpool/temp/apool-backup/treetop/add/7                       24K  1.76T    24K  /bpool/temp/apool-backup/treetop/add/7
 bpool/temp/apool-backup/treetop/minus                      444K  1.76T    89K  /bpool/temp/apool-backup/treetop/minus
 bpool/temp/apool-backup/treetop/minus/two                  355K  1.76T    89K  /bpool/temp/apool-backup/treetop/minus/two

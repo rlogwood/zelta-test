@@ -10,6 +10,8 @@ dataset_arg="bpool/Backups/apool"
 # perform backup
 backup_output=$(zelta backup apool $dataset_arg)
 
+#echo "backup_output:$backup_output"
+
 last_snapshot_name=$(find_last_snapshot_name $dataset_arg)
 
 echo "last_snapshot_name: $last_snapshot_name"

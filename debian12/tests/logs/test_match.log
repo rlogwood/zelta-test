@@ -5,24 +5,24 @@ bpool/Backups/apool  1.72M  1.76T    24K  /bpool/Backups/apool
 + [ 0 -eq 1 ]
 + zelta match apool bpool/Backups/apool
 19 total datasets, 1 synced, 9 syncable, 9 unsyncable
-source dataset has changed: 15K
+source dataset has changed: 16K
 REL_NAME                                  MATCH                 SRC_LAST              TGT_LAST              INFO                          
-                                          @2024-05-27_21.53.00  @2024-05-27_21.53.00  @2024-05-27_21.53.00  up-to-date; source is written 
-/treetop                                                        @2024-05-27_21.53.02  @2024-05-27_21.53.00  cannot determine sync state   
-/treetop-backup                           @snap3                @2024-05-27_21.53.00                        source only; no target dataset
-/treetop-backup/add                                             @2024-05-27_21.53.00                        source only; no target dataset
-/treetop-backup/add/7                     @src7                 @2024-05-27_21.53.00                        source only; no target dataset
-/treetop-backup/minus                     @snap3                @2024-05-27_21.53.00                        source only; no target dataset
-/treetop-backup/minus/two                 @snap3                @2024-05-27_21.53.00                        source only; no target dataset
-/treetop-backup/minus/two/one             @snap3                @2024-05-27_21.53.00                        source only; no target dataset
-/treetop-backup/minus/two/one/0           @src7                 @2024-05-27_21.53.00                        source only; no target dataset
-/treetop-backup/minus/two/one/0/lift off  @snap3                @2024-05-27_21.53.00                        source only; no target dataset
-/treetop-backup/vol1                      @snap7                @2024-05-27_21.53.00                        source only; no target dataset
-/treetop/add                                                    @2024-05-27_21.53.02  @2024-05-27_21.53.00  cannot determine sync state   
-/treetop/add/7                                                  @2024-05-27_21.53.02  @2024-05-27_21.53.00  cannot determine sync state   
-/treetop/minus                                                  @2024-05-27_21.53.02  @2024-05-27_21.53.00  cannot determine sync state   
-/treetop/minus/two                                              @2024-05-27_21.53.02  @2024-05-27_21.53.00  cannot determine sync state   
-/treetop/minus/two/one                                          @2024-05-27_21.53.02  @2024-05-27_21.53.00  cannot determine sync state   
-/treetop/minus/two/one/0                                        @2024-05-27_21.53.02  @2024-05-27_21.53.00  cannot determine sync state   
-/treetop/minus/two/one/0/lift off                               @2024-05-27_21.53.02  @2024-05-27_21.53.00  cannot determine sync state   
-/treetop/vol1                                                   @2024-05-27_21.53.02  @2024-05-27_21.53.00  cannot determine sync state   
+                                          @2024-05-28_02.21.37  @2024-05-28_02.21.37  @2024-05-28_02.21.37  up-to-date; source is written 
+/treetop                                                        @2024-05-28_02.21.39  @2024-05-28_02.21.37  cannot determine sync state   
+/treetop-backup                           @snap3                @2024-05-28_02.21.37                        source only; no target dataset
+/treetop-backup/add                                             @2024-05-28_02.21.37                        source only; no target dataset
+/treetop-backup/add/7                     @src7                 @2024-05-28_02.21.37                        source only; no target dataset
+/treetop-backup/minus                     @snap3                @2024-05-28_02.21.37                        source only; no target dataset
+/treetop-backup/minus/two                 @snap3                @2024-05-28_02.21.37                        source only; no target dataset
+/treetop-backup/minus/two/one             @snap3                @2024-05-28_02.21.37                        source only; no target dataset
+/treetop-backup/minus/two/one/0           @src7                 @2024-05-28_02.21.37                        source only; no target dataset
+/treetop-backup/minus/two/one/0/lift off  @snap3                @2024-05-28_02.21.37                        source only; no target dataset
+/treetop-backup/vol1                      @snap7                @2024-05-28_02.21.37                        source only; no target dataset
+/treetop/add                                                    @2024-05-28_02.21.39  @2024-05-28_02.21.37  cannot determine sync state   
+/treetop/add/7                                                  @2024-05-28_02.21.39  @2024-05-28_02.21.37  cannot determine sync state   
+/treetop/minus                                                  @2024-05-28_02.21.39  @2024-05-28_02.21.37  cannot determine sync state   
+/treetop/minus/two                                              @2024-05-28_02.21.39  @2024-05-28_02.21.37  cannot determine sync state   
+/treetop/minus/two/one                                          @2024-05-28_02.21.39  @2024-05-28_02.21.37  cannot determine sync state   
+/treetop/minus/two/one/0                                        @2024-05-28_02.21.39  @2024-05-28_02.21.37  cannot determine sync state   
+/treetop/minus/two/one/0/lift off                               @2024-05-28_02.21.39  @2024-05-28_02.21.37  cannot determine sync state   
+/treetop/vol1                                                   @2024-05-28_02.21.39  @2024-05-28_02.21.37  cannot determine sync state   

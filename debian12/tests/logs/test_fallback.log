@@ -5,7 +5,7 @@ NOTE: This test depends on test_backup.sh, please run it first
 + zelta clone apool/treetop-backup apool/treetop
 cloning 9 streams
 + zelta backup -S --rotate apool/treetop bpool/treetop
-source snapshot created: @2024-05-27_21.53.02
+source snapshot created: @2024-05-28_02.21.39
 bpool/treetop/sub: no source dataset; no target snapshots; target is written
 bpool/treetop/sub/8: no source dataset; target dataset exists
 source renamed to 'bpool/treetop_snap3'
@@ -19,7 +19,7 @@ using provided clone origin bpool/treetop_snap3/minus/two/one@snap3
 using provided clone origin bpool/treetop_snap3/minus/two/one/0@snap3
 using provided clone origin bpool/treetop_snap3/minus/two/one/0/lift off@snap3
 using provided clone origin bpool/treetop_snap3/vol1@snap3
-37K sent, 7/9 streams received in 0.15 seconds
+36K sent, 7/9 streams received in 0.16 seconds
 + dataset_arg=bpool/treetop
 + find_last_snapshot_name bpool/treetop
 + dataset_name=bpool/treetop
@@ -33,9 +33,9 @@ using provided clone origin bpool/treetop_snap3/vol1@snap3
 + tail -1
 + awk -F@ {print $2}
 + awk {print $1}
-+ last_snapshot_name=2024-05-27_21.53.02
-+ echo 2024-05-27_21.53.02
-+ last_snapshot_name=2024-05-27_21.53.02
-+ zfs list bpool/treetop@2024-05-27_21.53.02
++ last_snapshot_name=2024-05-28_02.21.39
++ echo 2024-05-28_02.21.39
++ last_snapshot_name=2024-05-28_02.21.39
++ zfs list bpool/treetop@2024-05-28_02.21.39
 NAME                                USED  AVAIL  REFER  MOUNTPOINT
-bpool/treetop@2024-05-27_21.53.02     0B      -    90K  -
+bpool/treetop@2024-05-28_02.21.39     0B      -    90K  -

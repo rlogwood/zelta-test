@@ -22,6 +22,7 @@ cleanup_function() {
 
 
 install_latest_zelta() {
+    # must be dotted, changes the PATH to include zelta bin
     . ./clean_zelta_install.sh
 }
 
@@ -33,22 +34,17 @@ create_new_pools() {
 create_new_tree() {
     # make fresh tree
     ./make-snap-tree.sh
-
 }    
 
 initialize_tests() {
     . ./config.env
+    create_new_pools
     # setup environment fresh
     install_latest_zelta
-    create_new_pools
     create_new_tree
 }
 
-
-
-
 trap 'cleanup_function' EXIT $result
-
 
 
 if [ $(id -u) -ne 0 ]; then
@@ -65,4 +61,3 @@ echo "** Perform visual confirmation of setup"
 zpool list
 zfs list
 
- 
