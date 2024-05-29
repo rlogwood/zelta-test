@@ -18,8 +18,8 @@ Currently there is only one test sequence (see below)
 ```sh
 # update debian12/tests/config.env
 # an nvme example, the ? would be replaced by a device number
-export APOOL_DISK="nvme?n1"
-export BPOOL_DISK="nvme?n1"
+export APOOL_DISK="/dev/nvme?n1"
+export BPOOL_DISK="/dev/nvme?n1"
 ```
 
 ## Changes to root home directory
