@@ -51,7 +51,7 @@ create_new_pools() {
         if  pool_exists "$POOL_NAME"; then
             echo "Destroying existing pool '$POOL_NAME'."
             set -x
-            zpool destroy -f $POOL_NAME
+            zpool destroy $POOL_NAME
             set +x
         fi
 
