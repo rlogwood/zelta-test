@@ -13,8 +13,9 @@ cleanup_function() {
     set +x 
     if [ $result -ne 0 ]; then
         print_error "Error occurred in pool_setup"
+        print_error "* review your configuration in config.env"
     else
-        echo "poll_setup successful"
+        echo "pool_setup successful"
     fi
 }    
 
@@ -40,16 +41,17 @@ dict_get() {
 
 
 create_new_pools() {
-    #POOLS="$APOOL_NAME $BPOOL_NAME"
-    POOLS='apool bpool'
-    dict_set "apool" $APOOL_DISK
-    dict_set "bpool" $BPOOL_DISK
+    POOLS="$APOOL_NAME $BPOOL_NAME"
+
+    dict_set $APOOL_NAME $APOOL_DISK
+    dict_set $BPOOL_NAME $BPOOL_DISK
+
     for POOL_NAME in $POOLS; do
         echo "checking pool: $POOL_NAME"
         if  pool_exists "$POOL_NAME"; then
             echo "Destroying existing pool '$POOL_NAME'."
             set -x
-            zpool destroy $POOL_NAME
+            zpool destroy -f $POOL_NAME
             set +x
         fi
 
@@ -57,9 +59,9 @@ create_new_pools() {
         disk=$(dict_get $POOL_NAME)
         echo "Disk is: $disk"
         set -x
-        zpool create $POOL_NAME  $disk
+        zpool create -f $POOL_NAME  $disk
         set +x        
-done
+    done
 }
 
 
