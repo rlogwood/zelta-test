@@ -2,18 +2,18 @@
 + dataset_arg=apool
 + sync_output=dummy
 + zelta sync -sR apool bpool/Backups/src-apool-backup
-source snapshot created: @2024-05-29_02.57.24
+source snapshot created: @2024-05-29_18.08.16
 replicating 1 streams
-found clone origin bpool/Backups/src-apool-backup/treetop-backup@2024-05-29_02.57.15
-found clone origin bpool/Backups/src-apool-backup/treetop-backup/minus@2024-05-29_02.57.15
-found clone origin bpool/Backups/src-apool-backup/treetop-backup/minus/two@2024-05-29_02.57.15
-found clone origin bpool/Backups/src-apool-backup/treetop-backup/minus/two/one@2024-05-29_02.57.15
-found clone origin bpool/Backups/src-apool-backup/treetop-backup/minus/two/one/0@2024-05-29_02.57.15
-found clone origin bpool/Backups/src-apool-backup/treetop-backup/minus/two/one/0/lift off@2024-05-29_02.57.15
-found clone origin bpool/Backups/src-apool-backup/treetop-backup/add@2024-05-29_02.57.15
-found clone origin bpool/Backups/src-apool-backup/treetop-backup/add/7@2024-05-29_02.57.15
-found clone origin bpool/Backups/src-apool-backup/treetop-backup/vol1@2024-05-29_02.57.15
-2M sent, 62/62 streams received in 17.86 seconds
+found clone origin bpool/Backups/src-apool-backup/treetop-backup@2024-05-29_18.08.10
+found clone origin bpool/Backups/src-apool-backup/treetop-backup/minus@2024-05-29_18.08.10
+found clone origin bpool/Backups/src-apool-backup/treetop-backup/minus/two@2024-05-29_18.08.10
+found clone origin bpool/Backups/src-apool-backup/treetop-backup/minus/two/one@2024-05-29_18.08.10
+found clone origin bpool/Backups/src-apool-backup/treetop-backup/minus/two/one/0@2024-05-29_18.08.10
+found clone origin bpool/Backups/src-apool-backup/treetop-backup/minus/two/one/0/lift off@2024-05-29_18.08.10
+found clone origin bpool/Backups/src-apool-backup/treetop-backup/vol1@2024-05-29_18.08.10
+found clone origin bpool/Backups/src-apool-backup/treetop-backup/add@2024-05-29_18.08.10
+found clone origin bpool/Backups/src-apool-backup/treetop-backup/add/7@2024-05-29_18.08.10
+2M sent, 62/62 streams received in 3.55 seconds
 + find_last_snapshot_name apool
 + dataset_name=apool
 + entry=
@@ -21,14 +21,14 @@ found clone origin bpool/Backups/src-apool-backup/treetop-backup/vol1@2024-05-29
 + filter=tail -1
 + cmd=zfs list -t snapshot -o name,creation -s creation -r apool | grep "apool@" | tail -1 | awk -F'@' '{print $2}' | awk '{print $1}'
 + eval zfs list -t snapshot -o name,creation -s creation -r apool | grep "apool@" | tail -1 | awk -F'@' '{print $2}' | awk '{print $1}'
-+ + grep apool@
-zfs list -t snapshot -o name,creation -s creation -r apool
++ zfs list -t snapshot -o name,creation -s creation -r apool
++ grep apool@
 + tail -1
 + awk -F@ {print $2}
 + awk {print $1}
-+ last_snapshot_name=2024-05-29_02.57.24
-+ echo 2024-05-29_02.57.24
-+ last_snapshot_name=2024-05-29_02.57.24
++ last_snapshot_name=2024-05-29_18.08.16
++ echo 2024-05-29_18.08.16
++ last_snapshot_name=2024-05-29_18.08.16
 + treetop_backup_dataset=bpool/Backups/src-apool-backup/treetop-backup
 + find_last_snapshot_name bpool/Backups/src-apool-backup/treetop-backup 2
 + dataset_name=bpool/Backups/src-apool-backup/treetop-backup
@@ -37,21 +37,21 @@ zfs list -t snapshot -o name,creation -s creation -r apool
 + filter=tail -2 | head -1
 + cmd=zfs list -t snapshot -o name,creation -s creation -r bpool/Backups/src-apool-backup/treetop-backup | grep "bpool/Backups/src-apool-backup/treetop-backup@" | tail -2 | head -1 | awk -F'@' '{print $2}' | awk '{print $1}'
 + eval zfs list -t snapshot -o name,creation -s creation -r bpool/Backups/src-apool-backup/treetop-backup | grep "bpool/Backups/src-apool-backup/treetop-backup@" | tail -2 | head -1 | awk -F'@' '{print $2}' | awk '{print $1}'
-+ zfs list -t snapshot -o name,creation -s creation -r bpool/Backups/src-apool-backup/treetop-backup
-+ tail -2
-+ grep bpool/Backups/src-apool-backup/treetop-backup@
-+ head -1
++ grep bpool/Backups/src-apool-backup/treetop-backup@+ 
+zfs list -t snapshot -o name,creation -s creation -r bpool/Backups/src-apool-backup/treetop-backup
++ + tail -2
+head -1
 + awk -F@ {print $2}
 + awk {print $1}
-+ last_snapshot_name=2024-05-29_02.57.15
-+ echo 2024-05-29_02.57.15
-+ backup_snapshot_name=2024-05-29_02.57.15
++ last_snapshot_name=2024-05-29_18.08.10
++ echo 2024-05-29_18.08.10
++ backup_snapshot_name=2024-05-29_18.08.10
 + echo treetop backup snapshot name
 treetop backup snapshot name
 + echo
 
-+ echo last snapshot: 2024-05-29_02.57.24
-last snapshot: 2024-05-29_02.57.24
++ echo last snapshot: 2024-05-29_18.08.16
+last snapshot: 2024-05-29_18.08.16
 + zfs list -r bpool/Backups/src-apool-backup
 NAME                                                                     USED  AVAIL  REFER  MOUNTPOINT
 bpool/Backups/src-apool-backup                                          1.74M  1.76T    26K  /bpool/Backups/src-apool-backup
@@ -59,9 +59,9 @@ bpool/Backups/src-apool-backup/treetop                                     0B  1
 bpool/Backups/src-apool-backup/treetop-backup                           1.70M  1.76T    90K  /bpool/Backups/src-apool-backup/treetop-backup
 bpool/Backups/src-apool-backup/treetop-backup/add                         48K  1.76T    24K  /bpool/Backups/src-apool-backup/treetop-backup/add
 bpool/Backups/src-apool-backup/treetop-backup/add/7                       24K  1.76T    24K  /bpool/Backups/src-apool-backup/treetop-backup/add/7
-bpool/Backups/src-apool-backup/treetop-backup/minus                     1.18M  1.76T    89K  /bpool/Backups/src-apool-backup/treetop-backup/minus
-bpool/Backups/src-apool-backup/treetop-backup/minus/two                  963K  1.76T    89K  /bpool/Backups/src-apool-backup/treetop-backup/minus/two
-bpool/Backups/src-apool-backup/treetop-backup/minus/two/one              722K  1.76T    89K  /bpool/Backups/src-apool-backup/treetop-backup/minus/two/one
+bpool/Backups/src-apool-backup/treetop-backup/minus                     1.17M  1.76T    89K  /bpool/Backups/src-apool-backup/treetop-backup/minus
+bpool/Backups/src-apool-backup/treetop-backup/minus/two                  962K  1.76T    89K  /bpool/Backups/src-apool-backup/treetop-backup/minus/two
+bpool/Backups/src-apool-backup/treetop-backup/minus/two/one              721K  1.76T    88K  /bpool/Backups/src-apool-backup/treetop-backup/minus/two/one
 bpool/Backups/src-apool-backup/treetop-backup/minus/two/one/0            481K  1.76T    89K  /bpool/Backups/src-apool-backup/treetop-backup/minus/two/one/0
 bpool/Backups/src-apool-backup/treetop-backup/minus/two/one/0/lift off   240K  1.76T    88K  /bpool/Backups/src-apool-backup/treetop-backup/minus/two/one/0/lift off
 bpool/Backups/src-apool-backup/treetop-backup/vol1                       234K  1.76T    78K  -
@@ -69,7 +69,7 @@ bpool/Backups/src-apool-backup/treetop/add                                 0B  1
 bpool/Backups/src-apool-backup/treetop/add/7                               0B  1.76T    24K  /bpool/Backups/src-apool-backup/treetop/add/7
 bpool/Backups/src-apool-backup/treetop/minus                               0B  1.76T    89K  /bpool/Backups/src-apool-backup/treetop/minus
 bpool/Backups/src-apool-backup/treetop/minus/two                           0B  1.76T    89K  /bpool/Backups/src-apool-backup/treetop/minus/two
-bpool/Backups/src-apool-backup/treetop/minus/two/one                       0B  1.76T    89K  /bpool/Backups/src-apool-backup/treetop/minus/two/one
+bpool/Backups/src-apool-backup/treetop/minus/two/one                       0B  1.76T    88K  /bpool/Backups/src-apool-backup/treetop/minus/two/one
 bpool/Backups/src-apool-backup/treetop/minus/two/one/0                     0B  1.76T    89K  /bpool/Backups/src-apool-backup/treetop/minus/two/one/0
 bpool/Backups/src-apool-backup/treetop/minus/two/one/0/lift off            0B  1.76T    88K  /bpool/Backups/src-apool-backup/treetop/minus/two/one/0/lift off
 bpool/Backups/src-apool-backup/treetop/vol1                                0B  1.76T    78K  -
